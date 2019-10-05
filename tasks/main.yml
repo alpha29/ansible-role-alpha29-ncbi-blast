@@ -8,3 +8,11 @@
   yum:
     name: "/tmp/{{ ncbi_blast_rpm_name }}"
     state: present
+
+- name: install cpanm
+  yum:
+    pkg: perl-App-cpanminus
+
+- name: download perl modules for update_blastdb.pl
+  cpanm:
+    name: JSON

@@ -56,3 +56,17 @@ def test_seq_filtering_applications(host, name, version, description):
     assert description in cmd_result.stdout, "'{}' returned stdout '{}', stderr '{}'".format(cmd,
                                                                                                cmd_result.stdout,
                                                                                                cmd_result.stderr)
+
+
+@pytest.mark.parametrize("name,version", [
+    ("update_blastdb.pl", "581818"),
+])
+def test_update_blastdb(host, name, version):
+    """
+    Check that update_blastdb.pl works.  This requires the Perl JSON module, which in turn requires CPAN.
+    """
+    cmd = "update_blastdb.pl -version"
+    cmd_result = host.run(cmd)
+    assert f"/usr/bin/update_blastdb.pl version {version}" in cmd_result.stdout, "'{}' returned stdout '{}', stderr '{}'".format(cmd,
+                                                                                               cmd_result.stdout,
+                                                                                               cmd_result.stderr)

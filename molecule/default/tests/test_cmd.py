@@ -18,8 +18,8 @@ def test_search_applications(host, name, version, description):
     cmd = f"{name} -h"
     cmd_result = host.run(cmd)
     assert description in cmd_result.stdout, "'{}' returned stdout '{}', stderr '{}'".format(cmd,
-                                                                                               cmd_result.stdout,
-                                                                                               cmd_result.stderr)
+                                                                                             cmd_result.stdout,
+                                                                                             cmd_result.stderr)
 
 
 @pytest.mark.parametrize("name,version,description", [
@@ -35,8 +35,8 @@ def test_db_applications(host, name, version, description):
     cmd = f"{name} -h"
     cmd_result = host.run(cmd)
     assert description in cmd_result.stdout, "'{}' returned stdout '{}', stderr '{}'".format(cmd,
-                                                                                               cmd_result.stdout,
-                                                                                               cmd_result.stderr)
+                                                                                             cmd_result.stdout,
+                                                                                             cmd_result.stderr)
 
 
 @pytest.mark.parametrize("name,version,description", [
@@ -54,8 +54,8 @@ def test_seq_filtering_applications(host, name, version, description):
     cmd = f"{name} -h"
     cmd_result = host.run(cmd)
     assert description in cmd_result.stdout, "'{}' returned stdout '{}', stderr '{}'".format(cmd,
-                                                                                               cmd_result.stdout,
-                                                                                               cmd_result.stderr)
+                                                                                             cmd_result.stdout,
+                                                                                             cmd_result.stderr)
 
 
 @pytest.mark.parametrize("name,version", [
@@ -68,5 +68,5 @@ def test_update_blastdb(host, name, version):
     cmd = "update_blastdb.pl -version"
     cmd_result = host.run(cmd)
     assert f"/usr/bin/update_blastdb.pl version {version}" in cmd_result.stdout, "'{}' returned stdout '{}', stderr '{}'".format(cmd,
-                                                                                               cmd_result.stdout,
-                                                                                               cmd_result.stderr)
+                                                                                                                                 cmd_result.stdout,
+                                                                                                                                 cmd_result.stderr)

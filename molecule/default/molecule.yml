@@ -30,7 +30,7 @@ verifier:
   lint:
     name: flake8
     options:
-      max-line-length: 135
+      max-line-length: 147
 scenario:
   name: default  # optional
   create_sequence:

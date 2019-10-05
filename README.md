@@ -1,48 +1,79 @@
-Role Name
+ansible-role-ncbi-blast
 =========
 
-A brief description of the role goes here.
+Installs NCBI BLAST.
+- [Main page](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+- [Downloads](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
+- [User manual](https://www.ncbi.nlm.nih.gov/books/NBK279690/)
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+This role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
+
+    - hosts: localhost
+      roles:
+        - role: ansible-role-ncbi-blast
+          become: yes
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+No configurable role variables at this time.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+See requirements.yml for third-party role dependencies.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+As above::
 
-    - hosts: servers
+    - hosts: localhost
       roles:
-         - { role: ansible-role-ncbi-blast, x: 42 }
+        - role: ansible-role-ncbi-blast
+          become: yes
+
+Development
+------------
+```
+# Setup:
+python3.6 -m venv env
+source env/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+molecule test
+
+# Usage:
+# Do this to monitor timing, show Ansible debug logging, and tell Molecule to keep the Docker container on completion
+time molecule --debug test --destroy=never
+
+# Faster iterative development:
+# Verify that you don't have a running container.
+docker ps -a
+# Create one.
+time molecule create
+# Run some tests, which should fail.
+time molecule verify
+# Just run the playbook - skip linting, tests, et cetera
+time molecule converge
+# Make some changes, lather, rinse, repeat.
+...
+time molecule converge
+time molecule verify
+...
+# When finished, tear it down.
+time molecule destroy
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+C.J. Brown (cbrown@alpha29.com)

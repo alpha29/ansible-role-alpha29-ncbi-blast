@@ -1,8 +1,9 @@
 ansible-role-ncbi-blast
 =========
 
-Installs NCBI BLAST.
+Installs NCBI BLAST+.
 - [Main page](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+- [Installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK52640/)
 - [Downloads](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 - [User manual](https://www.ncbi.nlm.nih.gov/books/NBK279690/)
 

@@ -1,17 +1,11 @@
 ---
-- name: download rpm
-  get_url:
-    url: "{{ ncbi_blast_url }}"
-    dest: "/tmp/{{ ncbi_blast_rpm_name }}"
+- name: install blast+ (RedHat)
+  include_tasks: RedHat.yml
+  when: ansible_os_family == 'RedHat'
 
-- name: install rpm
-  package:
-    name: "/tmp/{{ ncbi_blast_rpm_name }}"
-    state: present
-
-- name: install cpanm
-  yum:
-    pkg: perl-App-cpanminus
+- name: install blast+ (Debian)
+  include_tasks: Debian.yml
+  when: ansible_os_family == 'Debian'
 
 - name: download perl modules for update_blastdb.pl
   cpanm:

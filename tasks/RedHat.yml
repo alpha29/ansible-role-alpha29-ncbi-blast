@@ -1,0 +1,14 @@
+---
+- name: download rpm
+  get_url:
+    url: "{{ ncbi_blast_url }}"
+    dest: "/tmp/{{ ncbi_blast_rpm_name }}"
+
+- name: install rpm
+  package:
+    name: "/tmp/{{ ncbi_blast_rpm_name }}"
+    state: present
+
+- name: install cpanm
+  yum:
+    pkg: perl-App-cpanminus

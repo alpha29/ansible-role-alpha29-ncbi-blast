@@ -1,0 +1,59 @@
+---
+- name: download tar.gz file
+  get_url:
+    url: "{{ ncbi_blast_tar_gz_url }}"
+    dest: "/tmp/{{ ncbi_blast_tar_gz_name }}"
+
+- name: unarchive file
+  unarchive:
+    src: "/tmp/{{ ncbi_blast_tar_gz_name }}"
+    dest: /opt
+    remote_src: yes
+
+- name: create symlinks
+  with_items:
+    - legacy_blast.pl
+    - get_species_taxids.sh
+    - update_blastdb.pl
+    - windowmasker
+    - tblastx
+    - tblastn
+    - segmasker
+    - rpstblastn
+    - rpsblast
+    - psiblast
+    - makeprofiledb
+    - makembindex
+    - makeblastdb
+    - dustmasker
+    - deltablast
+    - convert2blastmask
+    - blastx
+    - blastp
+    - blastn
+    - blastdbcmd
+    - blastdbcheck
+    - blastdb_aliastool
+    - blast_formatter
+  file:
+    src: "/opt/ncbi-blast-{{ ncbi_blast_version }}+/bin/{{ item }}"
+    dest: "/usr/bin/{{ item }}"
+    state: link
+
+# 'cpanm' needs 'make'.  Not sure why Centos didn't need this.
+- name: install build-essentials
+  apt:
+    pkg: build-essential
+
+- name: install cpanm
+  apt:
+    pkg: cpanminus
+
+- name: install curl - required for update_blastdb.pl
+  apt:
+    pkg: curl
+
+- name: remove tar.gz
+  file:
+    name: "/tmp/{{ ncbi_blast_tar_gz_name }}"
+    state: absent

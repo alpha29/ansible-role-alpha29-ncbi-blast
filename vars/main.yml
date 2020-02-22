@@ -3,3 +3,5 @@ ncbi_blast_version: 2.9.0
 ncbi_blast_url_root: "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+"
 ncbi_blast_rpm_name: "ncbi-blast-{{ ncbi_blast_version }}+-1.x86_64.rpm"
 ncbi_blast_url: "{{ ncbi_blast_url_root }}/{{ ncbi_blast_version }}/{{ ncbi_blast_rpm_name }}"
+ncbi_blast_tar_gz_name: "ncbi-blast-{{ ncbi_blast_version }}+-x64-linux.tar.gz"
+ncbi_blast_tar_gz_url: "{{ ncbi_blast_url_root }}/{{ ncbi_blast_version }}/{{ ncbi_blast_tar_gz_name }}"

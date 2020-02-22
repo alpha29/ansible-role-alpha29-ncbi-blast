@@ -1,8 +1,11 @@
-molecule==2.20.1  # https://github.com/ansible/molecule
+# Molecule will install whatever version of Ansible it deems fit; we pin because Pinning is Good
+ansible==2.9.5
+molecule==2.22  # https://github.com/ansible/molecule
 docker==4.0.2
 # Workaround for this error:
 #   "AttributeError: 'PlaybookCLI' object has no attribute 'base_parser'"
 #   https://github.com/ansible/molecule/issues/1727
 #   https://github.com/ansible/molecule/issues/2083
 #   https://github.com/philpep/testinfra/issues/401
-testinfra==3.0.4
+# cbrown 20200216 - molecule 2.22 now pulls in testinfra 3.0.6 or higher.  Keeping this pinned for safety's sake.
+testinfra==3.4.0

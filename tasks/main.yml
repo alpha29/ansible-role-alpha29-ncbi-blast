@@ -5,7 +5,7 @@
     dest: "/tmp/{{ ncbi_blast_rpm_name }}"
 
 - name: install rpm
-  yum:
+  package:
     name: "/tmp/{{ ncbi_blast_rpm_name }}"
     state: present
 

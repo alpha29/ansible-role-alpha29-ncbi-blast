@@ -40,7 +40,7 @@ Development
 ------------
 ```
 # Setup:
-python3.6 -m venv env
+python3.7 -m venv env
 source env/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
@@ -66,6 +66,12 @@ time molecule verify
 ...
 # When finished, tear it down.
 time molecule destroy
+
+# By default, all of the above runs against a Centos 7 Docker image.  
+# Use the MOLECULE_DISTRO environment variable to swap in other distros, e.g.: 
+time MOLECULE_DISTRO=ubuntu1804 molecule test
+
+# NOTE:  If you update requirements.yml, ***MAKE SURE*** you update meta/main.yml as well!
 ```
 
 License

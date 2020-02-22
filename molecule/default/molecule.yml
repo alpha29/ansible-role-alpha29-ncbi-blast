@@ -25,6 +25,13 @@ provisioner:
   config_options:
     defaults:
       deprecation_warnings: false
+    # cbrown 20200214 - CAR-70:  This may be a useful addition:
+    #   https://www.jeffgeerling.com/blog/2017/slow-ansible-playbook-check-ansiblecfg
+    # Didn't seem to help or hurt anything when testing via Molecule.  Leaving it here for posterity.
+    # Note, if you want to confirm that Molecule picked this up, you can see Molecule's generated ansible.cfg at:
+    #   /tmp/molecule/ansible-role-alpha29-devops/default/ansible.cfg
+    ssh_connection:
+      pipelining: true
 verifier:
   name: testinfra
   lint:

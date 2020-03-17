@@ -3,6 +3,10 @@
   get_url:
     url: "{{ ncbi_blast_url }}"
     dest: "/tmp/{{ ncbi_blast_rpm_name }}"
+    register: download_result
+    until: download_result.rc == 0
+    retries: 10
+    delay: 1
 
 - name: install rpm
   package:

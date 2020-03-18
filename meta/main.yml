@@ -13,8 +13,8 @@ galaxy_info:
       versions:
         - bionic
   galaxy_tags:
-    - system
-    - server
+    - alpha29
+    - bio
     - blast
     - ncbi
     - genome

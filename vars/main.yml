@@ -1,6 +1,9 @@
 ---
 ncbi_blast_version: 2.9.0
-ncbi_blast_url_root: "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+"
+# Some documentation indicates that this should be ftp://.  But, this indicates we should prefer https://:
+#   https://www.ncbi.nlm.nih.gov/genome/doc/ftpfaq/#protocols
+# This seems much more normal than ancient-ass FTP, and empirically the download is much more reliable.
+ncbi_blast_url_root: "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+"
 ncbi_blast_rpm_name: "ncbi-blast-{{ ncbi_blast_version }}+-1.x86_64.rpm"
 ncbi_blast_url: "{{ ncbi_blast_url_root }}/{{ ncbi_blast_version }}/{{ ncbi_blast_rpm_name }}"
 ncbi_blast_tar_gz_name: "ncbi-blast-{{ ncbi_blast_version }}+-x64-linux.tar.gz"

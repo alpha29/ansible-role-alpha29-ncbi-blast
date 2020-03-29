@@ -1,5 +1,6 @@
-ansible-role-ncbi-blast
+ansible-role-alpha29-ncbi-blast
 =========
+[![Build Status](https://travis-ci.org/alpha29/ansible-role-alpha29-ncbi-blast.svg?branch=master)](https://travis-ci.org/alpha29/ansible-role-alpha29-ncbi-blast)
 
 Installs NCBI BLAST+.
 - [Main page](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
@@ -14,7 +15,7 @@ This role requires root access, so either run it in a playbook with a global `be
 
     - hosts: localhost
       roles:
-        - role: ansible-role-ncbi-blast
+        - role: alpha29.ncbi-blast
           become: yes
 
 Role Variables
@@ -34,7 +35,7 @@ As above::
 
     - hosts: localhost
       roles:
-        - role: ansible-role-ncbi-blast
+        - role: alpha29.ncbi-blast
           become: yes
 
 Development

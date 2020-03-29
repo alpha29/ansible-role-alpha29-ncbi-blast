@@ -15,13 +15,10 @@ env:
 install:
   - pip install -r requirements.txt
 
-# Use actual Ansible Galaxy role name for the project directory.
-# Geerling does this, but it isn't clear that I need to...
-# ...And in fact, we should not do this.  Internal rolename references explode.
-# before_script:
-#  - cd ../
-#  - mv ansible-role-$ORG_NAME-$ROLE_NAME $ORG_NAME.$ROLE_NAME
-#  - cd $ORG_NAME.$ROLE_NAME
+before_script:
+  - cd ../
+  - mv ansible-role-$ORG_NAME-$ROLE_NAME $ORG_NAME.$ROLE_NAME
+  - cd $ORG_NAME.$ROLE_NAME
 
 script:
   - molecule test

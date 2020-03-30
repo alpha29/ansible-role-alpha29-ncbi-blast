@@ -42,6 +42,7 @@ Development
 ------------
 ```
 # Setup:
+git clone git@github.com:alpha29/ansible-role-alpha29-ncbi-blast.git alpha29.ncbi-blast
 python3.7 -m venv env
 source env/bin/activate
 pip install --upgrade pip
@@ -84,4 +85,4 @@ MIT
 Author Information
 ------------------
 
-C.J. Brown (cbrown@alpha29.com)
+<info@alpha29.com>

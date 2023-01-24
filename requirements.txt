@@ -1,5 +1,5 @@
 # Molecule will install whatever version of Ansible it deems fit; we pin because Pinning is Good
-ansible==2.9.6
+ansible==7.0.0
 molecule==3.0.2  # https://github.com/ansible/molecule
 docker==4.0.2
 testinfra==3.4.0
